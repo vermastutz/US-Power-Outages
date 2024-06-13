@@ -52,19 +52,19 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
 
 **Note:** We did not assess or impute the missing values during this step, so that we could impute the missingness mechanisms and dependencies later in our analysis. 
 
-| U.S._STATE   | CLIMATE.REGION     | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |
-|:-------------|:-------------------|:-------------------|:--------------------|:--------------------------|:-------------------|------------------:|---------------------:|
-| Minnesota    | East North Central | normal             | 2011-07-01 00:00:00 | 20:00:00                  | severe weather     |              3060 |                70000 |
-| Minnesota    | East North Central | normal             | 2014-05-11 00:00:00 | 18:39:00                  | intentional attack |                 1 |                  nan |
-| Minnesota    | East North Central | cold               | 2010-10-26 00:00:00 | 22:00:00                  | severe weather     |              3000 |                70000 |
-| Minnesota    | East North Central | normal             | 2012-06-19 00:00:00 | 23:00:00                  | severe weather     |              2550 |                68200 |
-| Minnesota    | East North Central | warm               | 2015-07-18 00:00:00 | 07:00:00                  | severe weather     |              1740 |               250000 |
+            | U.S._STATE   | CLIMATE.REGION     | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |
+            |:-------------|:-------------------|:-------------------|:--------------------|:--------------------------|:-------------------|------------------:|---------------------:|
+            | Minnesota    | East North Central | normal             | 2011-07-01 00:00:00 | 20:00:00                  | severe weather     |              3060 |                70000 |
+            | Minnesota    | East North Central | normal             | 2014-05-11 00:00:00 | 18:39:00                  | intentional attack |                 1 |                  nan |
+            | Minnesota    | East North Central | cold               | 2010-10-26 00:00:00 | 22:00:00                  | severe weather     |              3000 |                70000 |
+            | Minnesota    | East North Central | normal             | 2012-06-19 00:00:00 | 23:00:00                  | severe weather     |              2550 |                68200 |
+            | Minnesota    | East North Central | warm               | 2015-07-18 00:00:00 | 07:00:00                  | severe weather     |              1740 |               250000 |
         
 ### Univariate Analysis
 
 
 The histogram plot below shows the number of major power outages in each climate region.
-This plot reveals that certain regions experience outages more frequently. We wanted to see this relation to interpret whether regions with harsh weather conditions or older infrastructure might see a higher number of outages.
+This plot reveals that certain regions experience outages more frequently. We wanted to see this relation to interpret whether regions with harsh weather conditions or older infrastructure might see a higher number of outages. For example, the plot tells us that the Northeast region experiences significantly higher power outages, this can be due to the extreme weather this region experiences or simply because the Northeast region consists of several states.
 Understanding which regions are more prone to outages can help in targeting infrastructure improvements and preventative measures.
 
 <iframe
@@ -93,7 +93,7 @@ Each region consists of the following states:
 
 
 The plot below shows the number of outages occurring in each month across the data's timeframe (January 2000 to July 2016).
-The plot allows us to interpret any seasonal trends, such as an increase in outages during winter months when storms are more frequent or during summer months when high electricity demand can lead to failures.
+The plot allows us to interpret any seasonal trends, such as an increase in outages during certain months when storms are more frequent or during summer months when high electricity demand can lead to failures. This plot specifically shows us that there is a significant rise in the number of power outages that occur during June and July, this could be because of the high electricity demand during these hot summer months.
 Identifying seasonal trends can help in preparing for periods with higher risks of outages and planning maintenance accordingly.
 
 <iframe
@@ -119,7 +119,7 @@ This trend highlights the importance of quickly restoring power to minimize the 
   frameborder="0"
 ></iframe>
 
-The box plot below shows the distribution of average outage durations for different causes behind power outages.
+The bar plot below shows the distribution of average outage durations for different causes behind power outages.
 The plot indicates that certain causes, such as fuel supply emergency or severe weather, lead to longer outages compared to others.
 Understanding which causes result in longer outages can help prioritize resources for prevention and quicker response. For instance, if equipment failure causes longer outages, investing in better maintenance and upgrading infrastructure could reduce outage durations.
 
@@ -383,6 +383,15 @@ We performed a permutation test with 1000 repetitions and calculated the observe
 
 **Observed Test Statistic:** 79.1
 **P-value:** 0.406
+
+
+
+<iframe
+  src="assets/plot1bivariate.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 In conclusion, because our P-value is greater than the significance level, we fail to reject the null hypothesis. Thus, for these chosen groups our model makes **fair** predictions. 
 
