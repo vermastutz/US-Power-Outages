@@ -318,10 +318,10 @@ Preprocessing: StandardScaler for numerical features and OneHotEncoder for categ
 ##### Performance:
 
 **Training Score:**
-R^2^ = 0.0595
+R^2 = 0.0595
 
 **Test Score:** 
-R^2^ = 0.1197
+R^2 = 0.1197
 
 **Training RMSE:** 4454.45
 **Test RMSE:** 3546.66
@@ -362,10 +362,10 @@ Model: Linear Regression
 ##### Performance:
 
 **Training Score:** 
-R^2^ = 0.3040
+R^2 = 0.3040
 
 **Test Score:**
-R^2^ = 0.2748
+R^2 = 0.2748
 
 **Training RMSE:** 3832.10
 
@@ -410,6 +410,7 @@ We performed a permutation test with 1000 repetitions and calculated the observe
 
 **P-value:** 0.406
 
+The plot below shows the empirical distribution of the test statistic.
 
 <iframe
   src="assets/plot1fair.html"
