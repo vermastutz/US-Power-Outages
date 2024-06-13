@@ -57,7 +57,7 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
 | Minnesota    | East North Central | normal             | 2012-06-19 00:00:00 | 23:00:00                  | severe weather     |              2550 |                68200 |
 | Minnesota    | East North Central | warm               | 2015-07-18 00:00:00 | 07:00:00                  | severe weather     |              1740 |               250000 |
         
-###Univariate Analysis
+### Univariate Analysis
 
 <iframe
   src="assets/plot1.html"
@@ -139,6 +139,72 @@ These insights can help in developing targeted strategies for outage prevention 
 
 
 ## Assessment of Missingness
+
+### NMAR Analysis:
+
+In the dataset, the 'OUTAGE.RESTORATION.DATE' and 'OUTAGE.RESTORATION.TIME' columns are likely Not Missing At Random (NMAR). This assessment is based on the nature of how this data is recorded and the circumstances under which it might be missing.
+- The restoration date and time might be missing if the outage is ongoing. In such cases, it is impossible to record a restoration time because the outage has not yet been resolved.
+- For particularly severe outages, the restoration information might not be promptly recorded due to the complexity and scale of the incident. This could include situations where the data recording systems are affected by the outage or where the restoration process is too chaotic to allow for immediate logging.
+
+In both cases, the missing data is directly related to the values themselves (i.e., ongoing or unreported severe outages), making them NMAR.
+
+To better understand the missingness and potentially reclassify it as Missing At Random (MAR), the following additional data might be useful:
+- Detailed incident reports for each outage, which might provide context on whether the restoration was delayed or ongoing at the time of data recording.
+- Real-time status updates or logs from the utility companies, indicating whether the restoration process was in progress or completed.
+
+By incorporating such additional data, it might be possible to demonstrate that the missingness is related to observable factors, thus reclassifying it from NMAR to MAR.
+
+
+
+
+### Analysis of missingness dependency:
+
+#### Missingness of CUSTOMERS.AFFECTED column:
+
+To assess whether the missingness in the 'CUSTOMERS.AFFECTED' column is dependent on the 'CLIMATE.CATEGORY' column, we performed a permutation test.
+
+**Null Hypothesis:** The missingness of values in 'CUSTOMERS.AFFECTED' does not depend on the 'CLIMATE.CATEGORY'.
+
+**Alternative Hypothesis:** The missingness of values in 'CUSTOMERS.AFFECTED' depends on the 'CLIMATE.CATEGORY'.
+
+**Test Statistic:** Total Variation Distance (TVD)
+
+
+
+
+
+The above histogram represents the empirical distribution of our test statistics with 500 permutations, the vertical red line marks the observed test statistic.
+
+
+
+
+Our observed TVD is 0.034, since that corresponds to a **p-value of 0.366** i.e greater than the typical significance level of 0.05, we **fail to reject the null hypothesis**. This indicates that the missingness in 'CUSTOMERS.AFFECTED' is **not significantly dependent** on 'CLIMATE.CATEGORY', or we can say that the distribution of climate category is the same when customers affected is missing and not missing
+
+
+
+
+#### Missingness of OUTAGE.DURATION column:
+
+Similarly, To assess whether the missingness of values in the 'OUTAGE.DURATION' column is dependent on the 'CLIMATE.CATEGORY' column, we performed a permutation test.
+
+**Null Hypothesis:** The missingness of values in 'OUTAGE.DURATION' does not depend on the 'CLIMATE.CATEGORY'.
+
+**Alternative Hypothesis:** The missingness of values in 'CUSTOMERS.AFFECTED' depends on the 'CLIMATE.CATEGORY'.
+
+**Test Statistic:** Total Variation Distance (TVD)
+
+
+
+
+
+The above histogram represents the empirical distribution of our test statistics with 500 permutations, the vertical red line marks the observed test statistic.
+
+
+
+
+Our observed TVD is 0.32, since that corresponds to a **p-value of 0.0**, we **reject the null hypothesis**. This suggests that the missingness in 'OUTAGE.DURATION' is **significantly dependent** on 'CLIMATE.CATEGORY', or, the distribution of Cliamte Category is different when Outage Duration is missing and not.
+
+
 
 
 ## Hypothesis Testing
