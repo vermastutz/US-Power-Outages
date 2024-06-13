@@ -52,6 +52,8 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
 
 **Note:** We did not assess or impute the missing values during this step, so that we could impute the missingness mechanisms and dependencies later in our analysis. 
 
+The first few rows of the cleaned dataframe our shown below, with only a certain few columns selected:
+
             | U.S._STATE   | CLIMATE.REGION     | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |
             |:-------------|:-------------------|:-------------------|:--------------------|:--------------------------|:-------------------|------------------:|---------------------:|
             | Minnesota    | East North Central | normal             | 2011-07-01 00:00:00 | 20:00:00                  | severe weather     |              3060 |                70000 |
@@ -63,8 +65,10 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
 ### Univariate Analysis
 
 
-The histogram plot below shows the number of major power outages in each climate region.
+The histogram plot below shows the **number of major power outages in each climate region.**
+
 This plot reveals that certain regions experience outages more frequently. We wanted to see this relation to interpret whether regions with harsh weather conditions or older infrastructure might see a higher number of outages. For example, the plot tells us that the Northeast region experiences significantly higher power outages, this can be due to the extreme weather this region experiences or simply because the Northeast region consists of several states.
+
 Understanding which regions are more prone to outages can help in targeting infrastructure improvements and preventative measures.
 
 <iframe
@@ -92,8 +96,10 @@ Each region consists of the following states:
 
 
 
-The plot below shows the number of outages occurring in each month across the data's timeframe (January 2000 to July 2016).
+The plot below shows the **number of outages occurring in each month across the data's timeframe (January 2000 to July 2016)**.
+
 The plot allows us to interpret any seasonal trends, such as an increase in outages during certain months when storms are more frequent or during summer months when high electricity demand can lead to failures. This plot specifically shows us that there is a significant rise in the number of power outages that occur during June and July, this could be because of the high electricity demand during these hot summer months.
+
 Identifying seasonal trends can help in preparing for periods with higher risks of outages and planning maintenance accordingly.
 
 <iframe
@@ -108,7 +114,8 @@ Identifying seasonal trends can help in preparing for periods with higher risks 
 
 ### Bivariate Analysis
 
-The scatter plot below illustrates the relationship between the duration of power outages (in minutes) and the number of customers affected.
+The scatter plot below illustrates the **relationship between the duration of power outages (in minutes) and the number of customers affected.**
+
 The scatter plot suggests a positive correlation, indicating that longer outages usually tend to impact more customers.
 This trend highlights the importance of quickly restoring power to minimize the number of affected customers. It also suggests that more severe outages, which take longer to fix, tend to impact larger populations, possibly due to the complexity of the issues causing the outages.
 
@@ -119,7 +126,8 @@ This trend highlights the importance of quickly restoring power to minimize the 
   frameborder="0"
 ></iframe>
 
-The bar plot below shows the distribution of average outage durations for different causes behind power outages.
+The bar plot below shows the **distribution of average outage durations for different causes behind power outages**.
+
 The plot indicates that certain causes, such as fuel supply emergency or severe weather, lead to longer outages compared to others.
 Understanding which causes result in longer outages can help prioritize resources for prevention and quicker response. For instance, if equipment failure causes longer outages, investing in better maintenance and upgrading infrastructure could reduce outage durations.
 
@@ -131,8 +139,10 @@ Understanding which causes result in longer outages can help prioritize resource
 ></iframe>
 
 
-The pivot table below shows the average duration of outages for different climate categories and regions.
+The pivot table below shows **the average duration of outages for different climate categories and regions.**
+
 The table reveals variations in outage durations based on climate and geographical location, with some climates and regions experiencing significantly longer outages on average. For example we see that the average outage duration in the Northeast region during warm climate is comparatively high (4176 minutes).
+
 These insights can help in developing targeted strategies for outage prevention and response. For example, regions with longer outage durations might benefit from enhanced infrastructure resilience measures.
 
 
@@ -151,11 +161,11 @@ These insights can help in developing targeted strategies for outage prevention 
 
 ### NMAR Analysis:
 
-In the dataset, the 'OUTAGE.RESTORATION.DATE' and 'OUTAGE.RESTORATION.TIME' columns are likely Not Missing At Random (NMAR). This assessment is based on the nature of how this data is recorded and the circumstances under which it might be missing.
+In the dataset, the 'OUTAGE.RESTORATION.DATE' and 'OUTAGE.RESTORATION.TIME' columns are likely Not Missing At Random (NMAR).This assessment is based on the nature of how this data is recorded and the circumstances under which it might be missing.
 - The restoration date and time might be missing if the outage is ongoing. In such cases, it is impossible to record a restoration time because the outage has not yet been resolved.
 - For particularly severe outages, the restoration information might not be promptly recorded due to the complexity and scale of the incident. This could include situations where the data recording systems are affected by the outage or where the restoration process is too chaotic to allow for immediate logging.
 
-In both cases, the missing data is directly related to the values themselves (i.e., ongoing or unreported severe outages), making them NMAR.
+In both cases, the missing data is directly related to the values themselves (i.e., ongoing or unreported severe outages), making them **NMAR**.
 
 To better understand the missingness and potentially reclassify it as Missing At Random (MAR), the following additional data might be useful:
 - Detailed incident reports for each outage, which might provide context on whether the restoration was delayed or ongoing at the time of data recording.
@@ -244,11 +254,12 @@ For the hypothesis testing, we aimed to investigate whether severe weather cause
 **Test Statistic:** Difference in means.
 
 
-We separated the dataset into two groups: one for severe weather causes and one for non-severe weather causes.
+We separated the dataset into two groups: one for **severe weather** causes and one for **non-severe** weather causes.
 Calculated the mean outage durations for each group:
-Mean duration for non-severe weather causes: 1309.18 minutes
-Mean duration for severe weather causes: 3837.82 minutes
-Observed difference in means: 2528.64 minutes
+
+- **Mean duration for non-severe weather causes:** 1309.18 minutes
+- **Mean duration for severe weather causes:** 3837.82 minutes
+- **Observed difference in means:** 2528.64 minutes
 
 **Permutation Test:**
 We combined the outage durations from both groups and performed 1000 permutations.
@@ -304,7 +315,7 @@ Train-Test Split: 80% training data and 20% test data
 Preprocessing: StandardScaler for numerical features and OneHotEncoder for categorical features
 
 
-###### Performance:
+##### Performance:
 
 **Training Score:**
 𝑅^2^ = 0.0595
@@ -340,13 +351,15 @@ We used a series of pipelines to test different combinations of these features a
 The best combination of features was then pre-processed using One-Hot-Encoding for categorical columns, and then fit to the training and test data using a **linear regression model**.
 
 
-###### Best Model:
+##### Best Model:
 
 **Features:** Cause Category, U.S. State, Month, Climate Category
-Preprocessing: FunctionTransformer for numerical features and OneHotEncoder for categorical features
+
+
+**Preprocessing:** FunctionTransformer for numerical features and OneHotEncoder for categorical features
 Model: Linear Regression
 
-###### Performance:
+##### Performance:
 
 **Training Score:** 
 𝑅^2^ = 0.3040
@@ -355,6 +368,7 @@ Model: Linear Regression
 𝑅^2^ = 0.2748
 
 **Training RMSE:** 3832.10
+
 **Test RMSE:** 3219.11
 
 After conducting a cross-validation with multiple pipelines, we found that the model incorporating all the mentioned features performed the best. The final model showed an improvement in performance compared to the baseline model, with an R-squared value of 0.2748 on the test data with an RMSE value of 3219.11. 
@@ -368,26 +382,38 @@ After analyzing our baseline model we came to the conclusion that the CUSTOMERS.
 To ensure the fairness of our final model, we conducted a fairness analysis comparing model performance based on the number of customers affected. We performed a permutation test to determine if there was a significant difference in RMSE between two groups.
 
 **Group X:** Number of Customers Affected >1000
+
+
 **Group Y:** Number of Customers Affected <=1000
+
+
 **Evaluation Metric:** Root Mean Squared Error (RMSE)
+
+
 **Test Statistic:** Difference in group means
+
+
 **Significance Level:** 0.05
 
 
 **Null Hypothesis:** The model's RMSE for Group X and Group Y are roughly the same; any differences are due to random chance.
+
+
 **Alternative Hypothesis:** The model's RMSE for Group X and Group Y are different.
 
 We performed a permutation test with 1000 repetitions and calculated the observed test statistic and the empirical p-value to determine if the observed difference in RMSE was statistically significant.
 
-###### Results:
+##### Results:
 
 **Observed Test Statistic:** 79.1
+
+
 **P-value:** 0.406
 
 
 
 <iframe
-  src="assets/plot1bivariate.html"
+  src="assets/plot1fair.html"
   width="800"
   height="600"
   frameborder="0"
