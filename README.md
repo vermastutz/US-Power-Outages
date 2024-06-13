@@ -16,7 +16,7 @@ The core research question we aim to explore is: How do the number of customers 
 The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 power outages and 57 features respectively. For this analysis, our focus will be on the following key columns:
 
 | Column      | Description |
-| :---   | ----: |
+| :---   | :---- |
 | YEAR        | The year when the outage occurred  |
 | MONTH       | The month when the outage occurred     |
 | U.S._STATE  | The state where the outage occurred
@@ -255,9 +255,12 @@ The results of the permutation test strongly suggest that the null hypothesis **
 
 Therefore, the permutation test suggests that severe weather causes significantly longer power outage durations compared to non-severe weather causes.
 
-
-
-
+<iframe
+  src="assets/plot1hyp.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 To visualize the results of our permutation test, we created a histogram of the permuted differences in mean outage durations. The red dashed line represents the observed difference of 2528.64 minutes, which lies far outside the distribution of permuted differences, further illustrating the significance of our findings.
