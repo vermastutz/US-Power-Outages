@@ -67,6 +67,14 @@ The histogram plot below shows the number of major power outages in each climate
 This plot reveals that certain regions experience outages more frequently. We wanted to see this relation to interpret whether regions with harsh weather conditions or older infrastructure might see a higher number of outages.
 Understanding which regions are more prone to outages can help in targeting infrastructure improvements and preventative measures.
 
+<iframe
+  src="assets/plot1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
 Each region consists of the following states:
 
 | Region               | States                                                                                   |
@@ -81,15 +89,6 @@ Each region consists of the following states:
 | West                 | California, Nevada                                                                       |
 | West North Central   | Montana, Nebraska, Wyoming, North Dakota, South Dakota                                    |
 
-
-Refer to the map plot below for further information on state-wise breakdown of number of power outages. 
-
-<iframe
-  src="assets/plot1.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
 
 
 
@@ -333,7 +332,7 @@ For the final model, we sought to improve upon the baseline model by engineering
 - Year (categorical)
 : Technological advancements and changes in infrastructure over time can influence how quickly outages are resolved. By including the year, the model can consider these temporal trends and improvements in outage management.
 - Climate Category (categorical)
-:Different climate regions can experience varying weather patterns and environmental conditions, impacting the frequency and duration of power outages. By incorporating the climate category, the model can better predict outage duration based on regional climate characteristics.
+: Different climate regions can experience varying weather patterns and environmental conditions, impacting the frequency and duration of power outages. By incorporating the climate category, the model can better predict outage duration based on regional climate characteristics.
 
 **Model Algorithm:**
 We used a series of pipelines to test different combinations of these features and selected the best-performing one using k-fold cross-validation.
