@@ -159,7 +159,7 @@ By incorporating such additional data, it might be possible to demonstrate that 
 
 ### Analysis of missingness dependency:
 
-#### Missingness of CUSTOMERS.AFFECTED column:
+##### Missingness of CUSTOMERS.AFFECTED column:
 
 To assess whether the missingness in the 'CUSTOMERS.AFFECTED' column is dependent on the 'CLIMATE.CATEGORY' column, we performed a permutation test.
 
@@ -192,7 +192,7 @@ Our observed TVD is 0.034, since that corresponds to a **p-value of 0.366** i.e 
 
 
 
-#### Missingness of OUTAGE.DURATION column:
+##### Missingness of OUTAGE.DURATION column:
 
 Similarly, To assess whether the missingness of values in the 'OUTAGE.DURATION' column is dependent on the 'CLIMATE.CATEGORY' column, we performed a permutation test.
 
