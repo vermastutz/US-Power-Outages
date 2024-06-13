@@ -177,7 +177,7 @@ To assess whether the missingness in the 'CUSTOMERS.AFFECTED' column is dependen
 ></iframe>
 
 <iframe
-  src="assets/plot4missing.html"
+  src="assets/plot4replace.html"
   width="800"
   height="600"
   frameborder="0"
