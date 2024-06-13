@@ -7,7 +7,7 @@ Project for DSC 80 at UCSD
 
 Our goal for this project, is to analyze a dataset of major power outages in the U.S. spanning from January 2000 to July 2016. The dataset is made available by Purdue University’s Laboratory for Advancing Sustainable Critical Infrastructure (LASCI), and can be accessed at [Purdue LASCI](https://engineering.purdue.edu/LASCI/research-data/outages).
 
-The dataset provides extensive information on the outages themselves as well as geographical and climatic characteristics, electricity consumption patterns, and economic traits of the affected states.
+The dataset provides extensive information on the outages themselves as well as geographical and climatic characteristics, electricity consumption patterns, and economic traits of the affected regions.
 
 Our analysis will progress through several key stages. Initially, we will clean the dataset and perform exploratory data analysis to understand the data's structure and trends. 
 
@@ -169,13 +169,22 @@ To assess whether the missingness in the 'CUSTOMERS.AFFECTED' column is dependen
 
 **Test Statistic:** Total Variation Distance (TVD)
 
+<iframe
+  src="assets/plot3missing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
-
+<iframe
+  src="assets/plot4missing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 The above histogram represents the empirical distribution of our test statistics with 500 permutations, the vertical red line marks the observed test statistic.
-
-
 
 
 Our observed TVD is 0.034, since that corresponds to a **p-value of 0.366** i.e greater than the typical significance level of 0.05, we **fail to reject the null hypothesis**. This indicates that the missingness in 'CUSTOMERS.AFFECTED' is **not significantly dependent** on 'CLIMATE.CATEGORY', or we can say that the distribution of climate category is the same when customers affected is missing and not missing
@@ -193,13 +202,24 @@ Similarly, To assess whether the missingness of values in the 'OUTAGE.DURATION' 
 
 **Test Statistic:** Total Variation Distance (TVD)
 
+<iframe
+  src="assets/plot1missing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
+
+<iframe
+  src="assets/plot2missing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
 The above histogram represents the empirical distribution of our test statistics with 500 permutations, the vertical red line marks the observed test statistic.
-
-
 
 
 Our observed TVD is 0.32, since that corresponds to a **p-value of 0.0**, we **reject the null hypothesis**. This suggests that the missingness in 'OUTAGE.DURATION' is **significantly dependent** on 'CLIMATE.CATEGORY', or, the distribution of Cliamte Category is different when Outage Duration is missing and not.
