@@ -34,6 +34,37 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
 
 
 ## Data Cleaning and Exploratory Data Analysis
+1. **Dropping Irrelevant Columns:**
+    - The columns we dropped were: 
+               =='variables'==,'OBS','NERC.REGION','POSTAL.CODE','ANOMALY.LEVEL','POPPCT_URBAN',
+               'POPPCT_UC','POPDEN_URBAN','POPDEN_UC','POPDEN_RURAL','AREAPCT_URBAN','AREAPCT_UC',
+               'PCT_LAND','PCT_WATER_TOT','PCT_WATER_INLAND','IND.CUST.PCT','PC.REALGSP.STATE',
+               'PC.REALGSP.USA','PC.REALGSP.REL','PC.REALGSP.CHANGE','UTIL.REALGSP','TOTAL.REALGSP',
+               'UTIL.CONTRI','PI.UTIL.OFUSA','RES.PERCEN','COM.PERCEN','IND.PERCEN','RES.CUST.PCT','COM.CUST.PCT',
+               'TOTAL.PRICE','RES.SALES','COM.SALES','IND.SALES','TOTAL.SALES','DEMAND.LOSS.MW','RES.PRICE',
+              'COM.PRICE','IND.PRICE','CAUSE.CATEGORY.DETAIL'
+    - These columns were not relevant to the research question focused on the causes and characteristics of major power outages. Removing them helped streamline the dataset and focus on the important variables.
+    
+
+2. **Converting data types:**
+    - OUTAGE.START.DATE and OUTAGE.RESTORATION.DATE were converted to datetime format for accurate date-time operations.
+    
+    -Ensuring that these columns were in the correct data types allowed for precise calculations of the duration of outages and accurate time-based analysis.
+    
+
+
+**Note:** We did not assess or impute the missing values during this step, so that we could impute the missingness mechanisms and dependencies later in our analysis. 
+
+| U.S._STATE   | CLIMATE.REGION     | CLIMATE.CATEGORY   | OUTAGE.START.DATE   | OUTAGE.RESTORATION.TIME   | CAUSE.CATEGORY     |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |
+|:-------------|:-------------------|:-------------------|:--------------------|:--------------------------|:-------------------|------------------:|---------------------:|
+| Minnesota    | East North Central | normal             | 2011-07-01 00:00:00 | 20:00:00                  | severe weather     |              3060 |                70000 |
+| Minnesota    | East North Central | normal             | 2014-05-11 00:00:00 | 18:39:00                  | intentional attack |                 1 |                  nan |
+| Minnesota    | East North Central | cold               | 2010-10-26 00:00:00 | 22:00:00                  | severe weather     |              3000 |                70000 |
+| Minnesota    | East North Central | normal             | 2012-06-19 00:00:00 | 23:00:00                  | severe weather     |              2550 |                68200 |
+| Minnesota    | East North Central | warm               | 2015-07-18 00:00:00 | 07:00:00                  | severe weather     |              1740 |               250000 |
+
+
+
 
 
 ## Assessment of Missingness
