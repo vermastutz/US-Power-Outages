@@ -57,6 +57,7 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
 | Minnesota    | East North Central | normal             | 2012-06-19 00:00:00 | 23:00:00                  | severe weather     |              2550 |                68200 |
 | Minnesota    | East North Central | warm               | 2015-07-18 00:00:00 | 07:00:00                  | severe weather     |              1740 |               250000 |
         
+###Univariate Analysis
 
 <iframe
   src="assets/plot1.html"
@@ -64,6 +65,77 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
   height="600"
   frameborder="0"
 ></iframe>
+
+This histogram plot shows the number of major power outages in each climate region.
+This plot reveals that certain regions experience outages more frequently. We wanted to see this relation to interpret whether regions with harsh weather conditions or older infrastructure might see a higher number of outages.
+Understanding which regions are more prone to outages can help in targeting infrastructure improvements and preventative measures.
+
+Each region consists of the following states:
+
+| Region               | States                                                                                   |
+|:----------------------|------------------------------------------------------------------------------------------|
+| Central              | Tennessee, West Virginia, Indiana, Illinois, Kentucky, Ohio, Missouri                      |
+| East North Central   | Minnesota, Wisconsin, Michigan, Iowa                                                      |
+| Northeast            | Maryland, Pennsylvania, New Jersey, District of Columbia, Delaware, New York, Vermont, Connecticut, Massachusetts, Maine, New Hampshire |
+| Northwest            | Washington, Oregon, Idaho                                                                |
+| South                | Texas, Mississippi, Louisiana, Arkansas, Oklahoma, Kansas                                 |
+| Southeast            | Alabama, North Carolina, South Carolina, Florida, Virginia, Georgia                        |
+| Southwest            | Arizona, Utah, New Mexico, Colorado                                                      |
+| West                 | California, Nevada                                                                       |
+| West North Central   | Montana, Nebraska, Wyoming, North Dakota, South Dakota                                    |
+
+
+Refer to the map plot below for further information on state-wise breakdown of number of power outages. 
+
+
+<iframe
+  src="assets/plot2univariate.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+This plot shows the number of outages occurring in each month across the data's timeframe (January 2000 to July 2016).
+The plot allows us to interpret any seasonal trends, such as an increase in outages during winter months when storms are more frequent or during summer months when high electricity demand can lead to failures.
+Identifying seasonal trends can help in preparing for periods with higher risks of outages and planning maintenance accordingly.
+
+
+### Bivariate Analysis
+
+<iframe
+  src="assets/plot1bivariate.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+This scatter plot illustrates the relationship between the duration of power outages (in minutes) and the number of customers affected.
+The scatter plot suggests a positive correlation, indicating that longer outages usually tend to impact more customers.
+This trend highlights the importance of quickly restoring power to minimize the number of affected customers. It also suggests that more severe outages, which take longer to fix, tend to impact larger populations, possibly due to the complexity of the issues causing the outages.
+
+
+<iframe
+  src="assets/plot2bivariate.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+This box plot shows the distribution of average outage durations for different causes behind power outages.
+The plot indicates that certain causes, such as fuel supply emergency or severe weather, lead to longer outages compared to others.
+Understanding which causes result in longer outages can help prioritize resources for prevention and quicker response. For instance, if equipment failure causes longer outages, investing in better maintenance and upgrading infrastructure could reduce outage durations.
+
+| CLIMATE.REGION     |     cold |   normal |    warm |
+|:-------------------|---------:|---------:|--------:|
+| Central            | 2841.27  | 2708.7   | 2413.84 |
+| East North Central | 6568.79  | 5271.22  | 3022.12 |
+| Northeast          | 3657.25  | 2273.96  | 4175.91 |
+| Northwest          |  874.681 |  733.612 | 3063.54 |
+| South              | 1969.57  | 3630.79  | 1861.4  |
+
+This pivot table shows the average duration of outages for different climate categories and regions.
+The table reveals variations in outage durations based on climate and geographical location, with some climates and regions experiencing significantly longer outages on average. For example we see that the average outage duration in the Northeast region during warm climate is comparatively high (4176 minutes).
+These insights can help in developing targeted strategies for outage prevention and response. For example, regions with longer outage durations might benefit from enhanced infrastructure resilience measures.
 
 
 ## Assessment of Missingness
