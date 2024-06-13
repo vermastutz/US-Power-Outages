@@ -20,7 +20,7 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
 | YEAR        | The year when the outage occurred  |
 | MONTH       | The month when the outage occurred     |
 | U.S._STATE  | The state where the outage occurred
-| CLIMATE.REGION      | The climate region of the state       |
+| CLIMATE.REGION      | The climate region of the state (Northeast, South etc.)       |
 | CLIMATE.CATEGORY   | The climate category (cold, normal, warm) during the outage |
 |OUTAGE.START.DATE| The start date of the outage|
 |OUTAGE.START.TIME| The start time of the outage|
@@ -233,8 +233,10 @@ For the hypothesis testing, we aimed to investigate whether severe weather cause
 
 
 **Null Hypothesis:** There is no difference in the mean power outage duration between severe weather causes and non-severe weather causes.
+
 **Alternative Hypothesis:** Severe weather causes longer mean power outage durations.
-**Test Statistic:** Difference in means
+
+**Test Statistic:** Difference in means.
 
 
 We separated the dataset into two groups: one for severe weather causes and one for non-severe weather causes.
@@ -267,6 +269,20 @@ To visualize the results of our permutation test, we created a histogram of the 
 
 
 ## Framing a Prediction Problem
+
+Our goal is to develop a prediction model to predict the **outage duration** of a power outage.  The prediction problem is a regression problem, as we are trying to predict a continuous variable (OUTAGE.DURATION) based on various features.
+
+**Response variable:** OUTAGE.DURATION
+
+Understanding and predicting outage duration is crucial for planning and resource allocation during power outages. By accurately predicting how long an outage will last, utility companies can better prepare and respond to minimize the impact on affected customers.
+
+**Evaluation Metric:** Root Mean Sqaured Error (RMSE)
+
+RMSE is chosen because it penalizes larger errors more than other metrics such as Mean Absolute Error (MAE). This makes RMSE particularly useful in regression when larger errors are especially undesirable, as is the case when predicting outage durations. RMSE provides a good measure of how well the model predicts the duration of outages by emphasizing the importance of minimizing large prediction errors, which can have significant operational implications for utility companies.
+
+**Justification of features:**
+
+To ensure that our model is practical and makes predictions based on information available at the time of prediction, we only use features that would be known or could be estimated at the onset of an outage. The features we use to train our model are: CAUSE.CATEGORY, CLIMATE.REGION, U.S. STATE, POPULATION, and CUSTOMERS.AFFECTED. These features are known at the time of the outage, and the number of customers affected can be quickly assessed early in the outage.
 
 
 ## Baseline Model
