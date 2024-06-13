@@ -365,3 +365,26 @@ After analyzing our baseline model we came to the conclusion that the CUSTOMERS.
 
 ## Fairness Analysis
 
+To ensure the fairness of our final model, we conducted a fairness analysis comparing model performance based on the number of customers affected. We performed a permutation test to determine if there was a significant difference in RMSE between two groups.
+
+**Group X:** Number of Customers Affected >1000
+**Group Y:** Number of Customers Affected <=1000
+**Evaluation Metric:** Root Mean Squared Error (RMSE)
+**Test Statistic:** Difference in group means
+**Significance Level:** 0.05
+
+
+**Null Hypothesis:** The model's RMSE for Group X and Group Y are roughly the same; any differences are due to random chance.
+**Alternative Hypothesis:** The model's RMSE for Group X and Group Y are different.
+
+We performed a permutation test with 1000 repetitions and calculated the observed test statistic and the empirical p-value to determine if the observed difference in RMSE was statistically significant.
+
+###### Results:
+
+**Observed Test Statistic:** 79.1
+**P-value:** 0.406
+
+In conclusion, because our P-value is greater than the significance level, we fail to reject the null hypothesis. Thus, for these chosen groups our model makes **fair** predictions. 
+
+Through this fairness analysis, we aim to ensure that our model performs equitably across different groups of customers, maintaining its reliability and fairness in predicting power outage durations.
+
