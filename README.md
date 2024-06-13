@@ -205,7 +205,9 @@ The histogram below represents the empirical distribution of our test statistics
 ></iframe>
 
 
-Our observed TVD is 0.034, since that corresponds to a **p-value of 0.366** i.e greater than the typical significance level of 0.05, we **fail to reject the null hypothesis**. This indicates that the missingness in 'CUSTOMERS.AFFECTED' is **not significantly dependent** on 'CLIMATE.CATEGORY', or we can say that the distribution of climate category is the same when customers affected is missing and not missing
+Our observed TVD is 0.034, since that corresponds to a **p-value of 0.366** i.e greater than the typical significance level of 0.05, we **fail to reject the null hypothesis**. This indicates that the missingness in 'CUSTOMERS.AFFECTED' is **not significantly dependent** on 'CLIMATE.CATEGORY', or we can say that the distribution of climate category is the same when customers affected is missing and not missing.
+
+Thus the missingness of CUSTOMERS.AFFECTED is **Missing Completely at Random** (MCAR)
 
 
 
@@ -237,7 +239,9 @@ The histogram below represents the empirical distribution of our test statistics
 ></iframe>
 
 
-Our observed TVD is 0.32, since that corresponds to a **p-value of 0.0**, we **reject the null hypothesis**. This suggests that the missingness in 'OUTAGE.DURATION' is **significantly dependent** on 'CLIMATE.CATEGORY', or, the distribution of Cliamte Category is different when Outage Duration is missing and not.
+Our observed TVD is 0.32, since that corresponds to a **p-value of 0.0**, we **reject the null hypothesis**. This suggests that the missingness in 'OUTAGE.DURATION' is **significantly dependent** on 'CLIMATE.CATEGORY', or, the distribution of Climate Category is different when Outage Duration is missing and not.
+
+Thus, the missingness of the OUTAGE.DURATION column is **Missing at Random** (MAR)
 
 
 
