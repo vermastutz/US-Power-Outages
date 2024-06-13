@@ -98,7 +98,7 @@ The plot allows us to interpret any seasonal trends, such as an increase in outa
 Identifying seasonal trends can help in preparing for periods with higher risks of outages and planning maintenance accordingly.
 
 <iframe
-  src="assets/plot2univariate.html"
+  src="assets/plot2unireplace.html"
   width="800"
   height="600"
   frameborder="0"
