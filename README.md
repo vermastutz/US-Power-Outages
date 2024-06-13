@@ -58,7 +58,12 @@ The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 
         | Minnesota    | East North Central | normal             | 2012-06-19 00:00:00 | 23:00:00                  | severe weather     |              2550 |                68200 |
         | Minnesota    | East North Central | warm               | 2015-07-18 00:00:00 | 07:00:00                  | severe weather     |              1740 |               250000 |
 
-
+<iframe
+  src="assets/plots.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 ## Assessment of Missingness
