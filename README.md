@@ -177,7 +177,7 @@ To assess whether the missingness in the 'CUSTOMERS.AFFECTED' column is dependen
 ></iframe>
 
 <iframe
-  src="assets/plot4replace.html"
+  src="assets/plot4replace2.html"
   width="800"
   height="600"
   frameborder="0"
@@ -211,7 +211,7 @@ Similarly, To assess whether the missingness of values in the 'OUTAGE.DURATION' 
 
 
 <iframe
-  src="assets/plot2missing.html"
+  src="assets/plot2replace.html"
   width="800"
   height="600"
   frameborder="0"
