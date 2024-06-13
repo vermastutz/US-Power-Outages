@@ -11,7 +11,7 @@ The dataset provides extensive information on the outages themselves as well as 
 
 Our analysis will progress through several key stages. Initially, we will clean the dataset and perform exploratory data analysis to understand the data's structure and trends. 
 
-The core research question we aim to explore is: What factors contribute to the frequency and duration of major power outages across different regions in the U.S.?  This analysis is crucial as it helps in identifying the key factors influencing power outages, which can aid in improving power outage frequencies and response strategies.
+The core research question we aim to explore is: How do the number of customers affected and climate conditions impact the duration and frequency of power outages across different regions? This analysis is crucial as it helps in identifying the key factors influencing power outages, which can aid in improving power outage frequencies and response strategies.
 
 The original dataset consists 1,534 rows and 57 columns, corresponding to 1,534 power outages and 57 features respectively. For this analysis, our focus will be on the following key columns:
 
@@ -228,6 +228,39 @@ Our observed TVD is 0.32, since that corresponds to a **p-value of 0.0**, we **r
 
 
 ## Hypothesis Testing
+
+For the hypothesis testing, we aimed to investigate whether severe weather causes lead to longer power outage durations compared to non-severe weather causes. The features we used to for the hypothesis test are: OUTAGE.DURATION and CAUSE.CATEGORY
+
+
+**Null Hypothesis:** There is no difference in the mean power outage duration between severe weather causes and non-severe weather causes.
+**Alternative Hypothesis:** Severe weather causes longer mean power outage durations.
+**Test Statistic:** Difference in means
+
+
+We separated the dataset into two groups: one for severe weather causes and one for non-severe weather causes.
+Calculated the mean outage durations for each group:
+Mean duration for non-severe weather causes: 1309.18 minutes
+Mean duration for severe weather causes: 3837.82 minutes
+Observed difference in means: 2528.64 minutes
+
+**Permutation Test:**
+We combined the outage durations from both groups and performed 1000 permutations.
+In each permutation, we randomly shuffled the combined durations and recalculated the mean difference between the two groups.
+
+
+We calculated the p-value by comparing the observed difference with the distribution of the permuted differences.
+The **p-value obtained was 0.0**
+
+The results of the permutation test strongly suggest that the null hypothesis **can be rejected**. The p-value (0.0) indicates that it is highly unlikely that the observed difference in mean outage durations between severe and non-severe weather causes is due to random chance.
+
+Therefore, the permutation test suggests that severe weather causes significantly longer power outage durations compared to non-severe weather causes.
+
+
+
+
+
+
+To visualize the results of our permutation test, we created a histogram of the permuted differences in mean outage durations. The red dashed line represents the observed difference of 2528.64 minutes, which lies far outside the distribution of permuted differences, further illustrating the significance of our findings.
 
 
 ## Framing a Prediction Problem
